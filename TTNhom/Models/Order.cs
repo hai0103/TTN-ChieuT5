@@ -18,9 +18,6 @@ namespace TTNhom.Models
         [Column(TypeName = "date")]
         public DateTime? OrderDate { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? TransferDate { get; set; }
-
         public int? CustomerID { get; set; }
 
         public virtual Customer Customer { get; set; }

@@ -1,0 +1,67 @@
+﻿
+@using TTNhom.Models
+@model Customer
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/NguoiDungLayout.cshtml";
+}
+
+<h2>Register</h2>
+
+<style>
+    .registration-form {
+        padding: 50px 400px;
+    }
+
+        .registration-form form {
+            max-width: 500px;
+            padding: 50px 70px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+
+            .registration-form form h3 {
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+
+        .registration-form .item {
+            border-radius: 10px;
+            margin-bottom: 25px;
+            padding: 10px 20px;
+        }
+
+        .registration-form .create-account {
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #3f93ff;
+            border: none;
+            color: white;
+            margin-top: 20px;
+        }
+</style>
+
+<div class="registration-form">
+    <form method="post">
+        <h3 class="text-center">Create your account</h3>
+        <div class="form-group">
+            <input class="form-control item" type="text" name="username" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control item" type="password" name="password" minlength="6" id="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control item" type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block create-account" type="submit">Create Account</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
