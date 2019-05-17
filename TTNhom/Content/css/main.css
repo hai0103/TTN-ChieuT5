@@ -5801,3 +5801,50 @@ label {
 .banner-img .img-fluid {
     height: 365px;
 }
+
+/*=============== Blog*/
+.col-md-4.blog-img {
+    float: left;
+}
+
+
+.blog_details.col-md-8 {
+    float: right;
+}
+
+.blog_post {
+    padding: 10px 2px 10px 2px;
+    border: solid 1px #d7d7d7;
+    margin: 10px 2px 10px 2px;
+}
+
+    .blog_post:hover {
+        border: solid 1px #ffba00;
+    }
+
+.blog-resent-img img.img-responsive {
+    width: 80px;
+}
+.baiviet-chiase {
+    float: left;
+    margin-top: 2px;
+    font-size: 15px;
+}
+
+i.fa.fa-facebook {
+    color: gray;
+}
+
+i.fa.fa-twitter {
+    color: gray;
+}
+
+i.fa.fa-google-plus {
+    color: gray;
+}
+
+h3.chiase {
+    font-size: inherit;
+    color: #726d6d;
+    margin-top: 9px;
+}
