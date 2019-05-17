@@ -5826,9 +5826,10 @@ label {
     width: 80px;
 }
 .baiviet-chiase {
-    float: left;
-    margin-top: 2px;
+    float: right;
+    margin-top: 12px;
     font-size: 15px;
+    display: inline-flex;
 }
 
 i.fa.fa-facebook {
@@ -5846,5 +5847,38 @@ i.fa.fa-google-plus {
 h3.chiase {
     font-size: inherit;
     color: #726d6d;
-    margin-top: 9px;
+    
+}
+
+.icon-chiase .icon-loc:hover {
+    color: #ff7f27;
+    transition: ease-in-out 0.4s;
+}
+
+.icon-loc {
+    float: left;
+    line-height:;
+    letter-spacing: 12px;
+}
+.icon-chiase {
+    display: inline-flex;
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+.blog-descri .white_bg_btn:hover {
+    background: #ff7f27;
+    transition: ease-in-out 0.4s;
+}
+
+.col-lg-12.col-md-12.blog_details {
+    line-height: 40px;
+    letter-spacing: 0.5px;
+    margin: 20px 0px;
+}
+
+.feature-img .img-fluid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
