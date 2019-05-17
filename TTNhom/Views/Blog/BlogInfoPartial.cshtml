@@ -1,0 +1,24 @@
+﻿@using TTNhom.Models
+@model List<Blog>
+<aside class="single_sidebar_widget popular_post_widget">
+    <h3 class="widget_title">Bài viết gần đây</h3>
+    @{
+        foreach (var item in Model)
+        {
+            <div class="media post_item">
+                <div class="blog-resent-img col-md-4">
+                    <img class="img-responsive" src="/Content/img/@Url.Content(item.Image)" alt="post">
+                </div>
+                <div class="media-body col-md-8">
+                    <div class="blog-resent-cont">
+                        <a href="blog-details.html">
+                            <h3>@item.Title</h3>
+                        </a>
+                        <p>@item.Date</p>
+                    </div>
+                </div>
+
+            </div>
+        }
+    }
+</aside>
