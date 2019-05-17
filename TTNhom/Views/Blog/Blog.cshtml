@@ -1,0 +1,74 @@
+﻿@using TTNhom.Models
+@model List<Blog>
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+@Html.Partial("BreadcrumbsPartial", "Shared")
+<!--================Blog Area =================-->
+<section class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog_left_sidebar">
+
+                    <article class="row blog_item">
+                        @{
+                            foreach (var item in Model)
+                            {
+
+                                <div class="blog_post">
+                                    <div class="col-md-4 blog-img">
+                                        <img src="/Content/img/@Url.Content(item.Image)" alt="">
+                                    </div>
+
+                                    <div class="blog_details col-md-8">
+                                        <div class="blog-title">
+                                            <a href="@Url.Action("BlogDetail","Blog",new { @BlogID = item.BlogID })">
+                                                <h2>@item.Title</h2>
+                                            </a>
+                                        </div>
+                                        <div class="blog-descri">
+                                            <p>
+                                                @item.ContentDM
+                                            </p>
+                                            <a href="@Url.Action("BlogDetail","Blog",new{ @BlogID=item.BlogID})" class="white_bg_btn">Xem thêm</a>
+                                        </div>
+
+                                        <div class="baiviet-chiase">
+                                            <h3 class="chiase ">Chia sẻ ngay</h3>
+
+                                            <ul class="icon-chiase">
+                                                <li><a href="#"><i class="fa fa-facebook icon-loc"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter icon-loc"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus icon-loc"></i></a></li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        }
+                    </article>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm bài viết" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tìm kiếm bài viết'">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
+                            </span>
+                        </div><!-- /input-group -->
+                        <div class="br"></div>
+                    </aside>
+                    @Html.Action("BlogInfoPartial", "Blog")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

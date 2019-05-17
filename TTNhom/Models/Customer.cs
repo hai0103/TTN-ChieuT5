@@ -40,7 +40,7 @@ namespace TTNhom.Models
         [Column(TypeName = "date")]
         public DateTime? BirthDate { get; set; }
 
-        public bool? IsAdmin { get; set; }
+        public int? IsAdmin { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
