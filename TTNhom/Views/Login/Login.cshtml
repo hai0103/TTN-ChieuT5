@@ -1,0 +1,45 @@
+﻿@*@using TTN_DXQ_LCH_NTN.Models
+    @model LoginModel*@
+@{
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<link href="~/Content/css/login.css" rel="stylesheet" />
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="~/Content/img/img/logo.png" id="icon" alt="User Icon" />
+        </div>
+        <!-- Login Form -->
+        <form method="post" id="contactForm">
+            <hr />
+
+            <input type="text" id="login" class="fadeIn second" name="us" placeholder="username" required>
+
+            <input type="password" id="password" class="fadeIn third" name="mk" placeholder="password" required>
+
+            <input type="submit" id="submit" class="fadeIn fourth" value="Log In">
+        </form>
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+            <a class="underlineHover" href="#">Sign Up</a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+        //window.onload = function () {
+        //    if (localStorage) {
+        //        document.getElementById('contactForm').addEventListener('submit', function () {
+        //            var name = document.getElementById('login').value;
+        //            localStorage.setItem('name', name);
+        //        });
+        //    }
+        //}
+</script>
