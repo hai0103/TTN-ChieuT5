@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -135,17 +141,22 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\CategoryOfProduct.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\PetLandModel.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +171,7 @@
     <Content Include="Content\css\ion.rangeSlider.skinFlat.css" />
     <Content Include="Content\css\jquerysctipttop.css" />
     <Content Include="Content\css\linearicons.css" />
+    <Content Include="Content\css\login.css" />
     <Content Include="Content\css\magnific-popup.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\nice-select.css" />
@@ -292,6 +304,7 @@
     <Content Include="Content\js\vendor\bootstrap.min.js" />
     <Content Include="Content\js\vendor\jquery-2.2.4.min.js" />
     <Content Include="Content\js\vendor\popper.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -357,6 +370,16 @@
     <Content Include="Views\Blog\Blog.cshtml" />
     <Content Include="Views\Blog\BlogInfoPartial.cshtml" />
     <Content Include="Views\Blog\BlogDetail.cshtml" />
+    <Content Include="Views\Store\Shop.cshtml" />
+    <Content Include="Views\Store\Product.cshtml" />
+    <Content Include="Views\Store\ProductDetail.cshtml" />
+    <Content Include="Views\GioHang\Success.cshtml" />
+    <Content Include="Views\GioHang\ShoppingCart.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\UpdateQuantity.cshtml" />
+    <Content Include="Views\GioHang\CheckOut.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
