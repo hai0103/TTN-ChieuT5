@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginAdMin</title>
+    <link href="~/Areas/Assets/css/login.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="login-page">
+            <div class="form">
+                <form class="register-form">
+                    <input type="text" name="name" placeholder="name" />
+                    <input type="password" name="pass" placeholder="password" />
+                    <input type="text" name="em" placeholder="email address" />
+                    <button>create</button>
+                    <p class="message">Already registered? <a href="#">Sign In</a></p>
+                </form>
+                <form class="login-form" method="post">
+                    <input type="text" name="username" placeholder="username" />
+                    <input type="password" name="password" placeholder="password" />
+                    <button>login</button>
+                    <p class="message">Not registered? <a href="#">Create an account</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    $('.message a').click(function () {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+</script>

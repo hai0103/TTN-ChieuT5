@@ -216,12 +216,12 @@
                                     </div>
                                     <div class="prd-bottom">
 
-                                        <a href="" class="social-info">
+                                        <a href="@Url.Action("Add","GioHang",new { @ProductID=item.ProductID,@strUrl=Request.Url.ToString()})" class="social-info">
                                             <span class="ti-bag"></span>
                                             <p class="hover-text">Thêm vào giỏ</p>
                                         </a>
                                         
-                                        <a href="" class="social-info">
+                                        <a href="@Url.Action("ProductDetail","Store",new { @ProductID=item.ProductID})" class="social-info">
                                             <span class="lnr lnr-move"></span>
                                             <p class="hover-text">Xem chi tiết</p>
                                         </a>
