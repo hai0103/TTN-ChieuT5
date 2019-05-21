@@ -1,0 +1,72 @@
+﻿@model IEnumerable<TTNhom.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransferStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+            </td>
+            <td>
+                @{
+                    if (item.Paid == 0)
+                    {
+                        <label style="color:red">Chưa thanh toán </label>
+                    }
+                    else
+                    {
+                        <label style="color:green">Đã thanh toán</label>
+                    }
+                }
+                @*@Html.DisplayFor(modelItem => item.Paid)*@
+            </td>
+            <td>
+                @{
+                    if (item.TransferStatus == 0)
+                    {
+                        <label style="color:blue">Đang chuyển</label>
+                    }
+                    else if (item.TransferStatus == 1)
+                    {
+                        <label style="color:green">Đã chuyển</label>
+                    }
+                    else
+                    {
+                        <label style="color:red">Bị hủy</label>
+                    }
+                }
+                @*@Html.DisplayFor(modelItem => item.TransferStatus)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.OrderID })*@
+            </td>
+        </tr>
+    }
+
+</table>
