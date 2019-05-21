@@ -2,76 +2,80 @@
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "ListProduct";
+    ViewBag.Title = "Danh sách sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>ListProduct</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @*@Html.DisplayNameFor(model => model.ProductName)*@
-            ProductName
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Price)*@
-            Price
-        </th>
-
-        <th>
-            @*@Html.DisplayNameFor(model => model.Image)*@
-            Image
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Total)*@
-            Total
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.New)*@
-            New
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div class="list-pro">
+    <div class="title-pro">
+        <h2>Danh sách sản phẩm</h2>
+        <p>
+            @Html.ActionLink("Thêm sản phẩm", "Create")
+        </p>
+    </div>
+    
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ProductName)*@
+                Tên Sản Phẩm
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Price)*@
+                Giá
+            </th>
 
-            <td>
-                <img src="@Url.Content("~/Content/img/"+item.Image)" alt="@item.ProductName" style="width:20%" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.New)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "EditProduct", new { id=item.ProductID })*@
-                <div class="btn btn-block btn-primary"><a style="color:white" href="@Url.Action("EditProduct", new { id=item.ProductID })">Edit</a></div>
-                @*@Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
-                <div class=" btn btn-block btn-danger"><a style="color:white" href="@Url.Action("Delete",new { id=item.ProductID})">Delete</a></div>
-            </td>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Image)*@
+                Hình ảnh
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Total)*@
+                Số lượng
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.New)*@
+                Mới
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
-<br />
-Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
 
-@Html.PagedListPager(Model, pageIndex => Url.Action("ListProduct",
-    new { pageIndex }))
+                <td>
+                    <img src="@Url.Content("~/Content/img/"+item.Image)" alt="@item.ProductName" style="width:20%" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.New)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "EditProduct", new { id=item.ProductID })*@
+                    <div class="btn btn-block btn-primary"><a style="color:white" href="@Url.Action("EditProduct", new { id=item.ProductID })">Edit</a></div>
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.ProductID })*@
+                    <div class=" btn btn-block btn-danger"><a style="color:white" href="@Url.Action("Delete",new { id=item.ProductID})">Delete</a></div>
+                </td>
+            </tr>
+        }
 
+    </table>
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @Html.PagedListPager(Model, pageIndex => Url.Action("ListProduct",
+        new { pageIndex }))
+
+</div>
 <style>
 
     ul.pagination li {

@@ -12,6 +12,10 @@ namespace TTNhom.Areas.Admin.Controllers
         // GET: Admin/Bill
         public ActionResult Index()
         {
+            if (Session["Admin"] == null)
+            {
+                RedirectToAction("LoginAd", "LoginAd");
+            }
             var lstOrder = db.Orders.ToList();
             return View(lstOrder);
         }

@@ -14,6 +14,10 @@ namespace TTNhom.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult ListProduct(int? pageIndex)
         {
+            if (Session["Admin"] == null)
+            {
+                RedirectToAction("LoginAd", "LoginAd");
+            }
             var items = db.Products.ToList();
             int _pageIndex = pageIndex ?? 1;
             return PartialView(items.OrderBy(x => x.ProductID).ToPagedList(_pageIndex, 5));

@@ -12,6 +12,10 @@ namespace TTN_DXQ_LCH_NTN.Areas.Admin.Controllers
         PetLandModel db = new PetLandModel();
         public ActionResult Index()
         {
+            if(Session["Admin"] == null)
+            {
+                RedirectToAction("LoginAd", "LoginAd");
+            }
             var lstUser = db.Customers.ToList();
             return View(lstUser);
         }

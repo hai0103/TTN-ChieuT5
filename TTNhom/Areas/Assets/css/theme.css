@@ -1461,7 +1461,7 @@ section {
 }
 
 .account-dropdown .info {
-    padding: 25px;
+    padding: 15px;
     border-top: 1px solid #f5f5f5;
     border-bottom: 1px solid #f2f2f2;
 }
@@ -1477,9 +1477,8 @@ section {
 }
 
 .account-dropdown .info .content {
-    margin-left: 65px;
-    padding: 11px 0;
-    padding-left: 12px;
+     padding: 11px 0;
+     padding-left: 12px;
 }
 
 .account-dropdown .info .content .name {
@@ -14638,4 +14637,26 @@ section {
 
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
+}
+
+/*====*/
+.table tr {
+    border-bottom: solid 2px #b7b5b5;
+    border-top: solid 2px #b7b5b5;
+}
+
+.title-pro {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.menu-sidebar .logo {
+    box-shadow: none;
+    border: none;
+}
+
+.account-item .image .far.fa-user {
+    display: block;
+    margin-top: 14px;
+    float: right;
 }

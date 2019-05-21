@@ -27,7 +27,7 @@ namespace TTNhom.Areas.Admin.Controllers
                 if (cus != null)
                 {
                     ViewBag.mess = "Successful";
-                    Session["Admin"] = us;
+                    Session["Admin"] = cus;
                     return RedirectToAction("Index", "HomeAdmin");
                 }
                 else
