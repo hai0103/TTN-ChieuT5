@@ -30,7 +30,7 @@ namespace TTNhom.Controllers
                 ViewBag.mess = "Đăng nhập thành công";
                 Session["Account"] = customer;
                 //Session["ShoppingCart"] = Session["ShoppingCart"];
-                return RedirectToAction("CheckOut", "GioHang");
+                return RedirectToAction("Index", "Home");
             }
             else if (customer == null)
             {
@@ -59,6 +59,11 @@ namespace TTNhom.Controllers
             db.Customers.Add(customer);
             db.SaveChanges();
             return Redirect("Login");
+        }
+        public ActionResult LogOff()
+        {
+            Session["Account"] = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }
