@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng nhập Admin</title>
+    <link href="~/Areas/Assets/css/login.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="login-page">
+            <div class="form">
+                <form class="register-form">
+                    <input type="text" name="name" placeholder="name" />
+                    <input type="password" name="pass" placeholder="password" />
+                    <input type="text" name="em" placeholder="email address" />
+                    <button>Tạo tài khoản</button>
+                    <p class="message">Đã có tài khoản? <a href="#">Đăng nhập ngay</a></p>
+                </form>
+                <form class="login-form" method="post">
+                    <input type="text" name="username" placeholder="username" />
+                    <input type="password" name="password" placeholder="password" />
+                    <button>Đăng nhập</button>
+                    <p class="message">Chưa có tài khoản? <a href="#">Đăng ký ngay</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    $('.message a').click(function () {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+</script>

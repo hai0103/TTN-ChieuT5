@@ -1,0 +1,45 @@
+﻿@*@using TTN_DXQ_LCH_NTN.Models
+    @model LoginModel*@
+@{
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<link href="~/Content/css/login.css" rel="stylesheet" />
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="~/Content/img/img/logo.png" id="icon" alt="Đăng nhập" />
+        </div>
+        <!-- Login Form -->
+        <form method="post" id="contactForm">
+            <hr />
+
+            <input type="text" id="login" class="fadeIn second" name="us" placeholder="Username" required>
+
+            <input type="password" id="password" class="fadeIn third" name="mk" placeholder="Password" required>
+
+            <input type="submit" id="submit" class="fadeIn fourth" value="Đăng nhập">
+        </form>
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Quên mật khẩu?</a>
+            <a class="underlineHover" href="@Url.Action("Register","Login")">Đăng ký</a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+        //window.onload = function () {
+        //    if (localStorage) {
+        //        document.getElementById('contactForm').addEventListener('submit', function () {
+        //            var name = document.getElementById('login').value;
+        //            localStorage.setItem('name', name);
+        //        });
+        //    }
+        //}
+</script>

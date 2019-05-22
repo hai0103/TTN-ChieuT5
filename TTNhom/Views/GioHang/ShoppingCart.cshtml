@@ -1,0 +1,204 @@
+﻿@using TTNhom.Models
+@model List<ShoppingCart>
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap-input-spinner.js"></script>
+@{
+    var tong = 0;
+}
+<div class="giohang">
+ 
+        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 left">
+            <div class="row">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cart-item">
+                            <div class="rowitem">
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 cart-img">
+                                    <div class="thumbnail">
+                                        <img class="item-img" src="@Url.Content("~/Content/img/"+item.Image)" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="col-right">
+
+                                    <a href="@Url.Action("ProductDetail","User",new{@ProductID=item.ProductID })"><p>@item.ProductName</p></a>
+
+                                    @Html.ActionLink("Xóa", "Delete", new { @ProductID = item.ProductID })
+
+                                    <div class="gia">@String.Format("{0:0,0}", item.Price)</div>
+
+                                    <input data-id="@item.ProductID" min="1" class="soLuong quantity-product" name="txtSoLuong" type="number" value=@item.Total>
+                                </div>
+                            </div>
+
+                        </div>
+                        tong += (int)(item.TotalPrice);
+                    }
+
+                }
+            </div>
+        </div>
+
+        @*@using (Html.BeginForm("Update", "GioHang", new { @ProductID = item.ProductID }))
+        {
+            <td>@Html.TextBox("txtSoLuong", item.Total)</td>
+            <td>@item.TotalPrice</td>
+            <td>
+                <input type="submit" value="Update" /> <br />
+                @Html.ActionLink("Xóa", "Delete", new { @ProductID = item.ProductID })
+            </td>
+        }*@
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 thanhtoan">
+            @*edit gio hang*@
+            @using (Html.BeginForm("CheckOut", "GioHang"))
+            {
+                <div class="price">
+
+                    <p class="total">Thành tiền</p>
+                    <span class="tong">@String.Format("{0:0,0}", tong)</span><br />
+                    <span>đ</span>
+                    <input type="submit" class="btn btn-block btn-danger thanhtoan" value="Thanh toán">
+                </div>
+            }
+
+        </div>
+
+    
+</div>
+
+<script>
+
+    function UpdateTotalPrice(id, soluong) {
+        $.ajax({
+            url:'@Url.Action("UpdateQuantity", "GioHang")',
+            type: 'POST',
+            data: { ProductID: id, Total: soluong },
+            dataType:'html',
+            success: function (kq) {
+                $('.price').html(kq);
+            }
+        });
+    }
+
+     @*$('#soLuong').change(function () {
+        soLuongMoi = $(this).val();
+        masp = $(this).attr('data-id');
+        $.ajax({
+            url: '@Url.Action("Update","GioHang")',
+            type: 'POST',
+            data: { ProductID: masp, Total: soLuongMoi },
+            success: function () {
+                location.reload();
+            }
+        });
+    })*@
+
+    $(function () {
+        $('.soLuong').click(function () {
+            var soluong = $(this).val();
+            var id = $(this).data('id');
+            UpdateTotalPrice(id, soluong);
+            //console.log(soluong+"+"+id);
+        })
+    });
+
+
+
+</script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    .item-img {
+        width: 100px;
+    }
+
+    .thumbnail {
+        margin: 12px 5px;
+    }
+
+    .col-right p {
+        font-size: 16px;
+        margin: 12px 5px;
+        color: #33333e;
+    }
+
+    .col-right a {
+        text-decoration: none;
+    }
+
+    .left {
+        width: 60%;
+        
+        /* height: 107px; */
+        margin-left: 162px;
+    }
+
+    .giohang {
+        display: flex;
+        margin-top: 200px;
+        margin-bottom: 100px;
+    }
+
+    .price span {
+        color: red;
+        font-size: 20px;
+    }
+
+    p.total {
+        font-size: 20px;
+    }
+
+    .price {
+        text-align: center;
+        box-sizing: border-box;
+        /* border: 1px solid gray; */
+        width: 153px;
+        background: #6964642e;
+        height: 107px;
+        margin-left: 27px;
+    }
+
+    .thanhtoan {
+        margin-top: 54px;
+        display: block;
+    }
+
+    price p {
+        font-size: 15px;
+    }
+
+    input[type="number"] {
+        position: relative;
+        left: 447px;
+        top: -75px;
+        width: 76px;
+    }
+
+    .gia {
+        position: relative;
+        left: 348px;
+        top: -51px;
+        font-size: 16px;
+    }
+    .cart-item {
+        margin: 2px;
+    }
+    .cart-item {
+        margin: 2px;
+        border: solid 1px gray;
+    }
+
+    .col-xs-3.col-sm-3.col-md-3.col-lg-3.cart-img {
+        float: left;
+    }
+
+</style>

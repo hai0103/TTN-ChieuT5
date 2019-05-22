@@ -1,0 +1,40 @@
+﻿@using TTNhom.Models
+@model PagedList.IPagedList<Product>
+
+
+
+<div class="row">
+    <!-- single product -->
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6">
+            <div class="single-product">
+                <img class="img-fluid" src="@Url.Content("~/Content/img/"+item.Image)" alt="">
+                <div class="product-details">
+                    <h6>
+                        @item.ProductName
+                    </h6>
+                    <div class="price">
+                        <h6>@item.Price VNĐ</h6>
+                        @*<h6 class="l-through">210.00</h6>*@
+                    </div>
+                    <div class="prd-bottom">
+
+                        <a href="@Url.Action("Add","GioHang",new { @ProductID = item.ProductID, @strUrl = "/Store/Shop" })" class="social-info">
+                            <span class="ti-bag"></span>
+                            <p class="hover-text">Thêm vào giỏ</p>
+                        </a>
+
+                        <a href="@Url.Action("ProductDetail","Store",new{@ProductID=item.ProductID})" class="social-info">
+                            <span class="lnr lnr-move"></span>
+                            <p class="hover-text">Xem chi tiêt</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

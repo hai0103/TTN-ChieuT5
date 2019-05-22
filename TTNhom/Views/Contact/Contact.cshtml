@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+@Html.Partial("BreadcrumbsPartial", "Shared")
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap_bottom">
+    <div class="container">
+        <div class="mapBox">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.6445216117468!2d105.78423511479463!3d21.046904985988487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab326aa9bfef%3A0xd60313e072fc5ac4!2zMjM2IEhvw6BuZyBRdeG7kWMgVmnhu4d0LCBD4buVIE5odeG6vywgVOG7qyBMacOqbSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1558249474674!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="contact_info">
+                    <div class="info_item">
+                        <i class="lnr lnr-home"></i>
+                        <h6>Cầu Giấy, Hà Nội</h6>
+                        <p>236 Hoàng Quốc Việt</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-phone-handset"></i>
+                        <h6><a href="#">Phone: 0123456789</a></h6>
+                        <p>Từ thứ 2 đến thứ 7: 8h30 - 18h00</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-envelope"></i>
+                        <h6><a href="#">petland@CNW.com</a></h6>
+                        <p>Gửi cho chúng tôi bất kỳ góp ý của bạn!!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên bạn" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập tên bạn'">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập email'">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Nhập tiêu đề" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập tiêu đề'">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Nhập nội dung" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập nội dung'"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" value="submit" class="primary-btn">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Contact Area =================-->
