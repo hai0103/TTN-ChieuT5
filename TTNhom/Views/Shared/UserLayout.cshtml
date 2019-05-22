@@ -1,4 +1,4 @@
-﻿
+﻿@using TTNhom.Models
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -75,16 +75,34 @@
                                     <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
                                 </ul>*@
                             </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   aria-expanded="false">Giới thiệu</a>
-                                @*<ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                                </ul>*@
-                            </li>
                             <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Contact")">Liên hệ</a></li>
+                            @if(Session["Account"] != null)
+                            {
+                                Customer ac = (Customer)Session["Account"];
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">@ac.CustomerName</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="@Url.Action("LogOff","Login")">Đăng xuất</a></li>
+                                        @*<li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>*@
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item submenu dropdown">
+                                    <a href="@Url.Action("Login","Login")" class="nav-link dropdown-toggle" @*data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false"*@>Đăng nhập</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Register","Login")">Đăng ký</a></li>
+                                        @*<li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>*@
+                                    </ul>
+                                </li>
+                            }
+
+
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="nav-item">@Html.Action("GioHangPartial", "GioHang")</li>

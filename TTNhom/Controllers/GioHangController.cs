@@ -28,6 +28,11 @@ namespace TTNhom.Controllers
         //Thêm giỏ hàng
         public ActionResult Add(int ProductID, string strUrl)
         {
+            if(Session["Account"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            
             //Nếu truyền vào mã sản phẩm ko có trong database thì trả về trang lỗi
             Product product = db.Products.SingleOrDefault(p => p.ProductID == ProductID);
             if (product == null)
@@ -44,6 +49,10 @@ namespace TTNhom.Controllers
             {
                 item = new ShoppingCart(ProductID);
                 item.Total = Convert.ToInt16(Request.Form["quant[1]"]);
+                if(item.Total == 0)
+                {
+                    item.Total = 1;
+                }
                 lstShoppingCart.Add(item);
                 return Redirect(strUrl);
             }
