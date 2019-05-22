@@ -2,14 +2,15 @@
 @model Customer
 @{
     ViewBag.Title = "Register";
-    Layout = "~/Views/Shared/NguoiDungLayout.cshtml";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
 }
 
-<h2>Register</h2>
+@*<h2>Register</h2>*@
 
 <style>
     .registration-form {
-        padding: 50px 400px;
+        padding: 50px 450px;
+        margin-top:100px;
     }
 
         .registration-form form {
@@ -45,7 +46,7 @@
 
 <div class="registration-form">
     <form method="post">
-        <h3 class="text-center">Create your account</h3>
+        <h3 class="text-center">Tạo tài khoản</h3>
         <div class="form-group">
             <input class="form-control item" type="text" name="username" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Username" required>
         </div>
@@ -56,11 +57,11 @@
             <input class="form-control item" type="email" name="email" id="email" placeholder="Email" required>
         </div>
         <div class="form-group">
-            <button class="btn btn-primary btn-block create-account" type="submit">Create Account</button>
+            <button class="btn btn-primary btn-block create-account" type="submit">Đăng ký</button>
         </div>
     </form>
 </div>
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
